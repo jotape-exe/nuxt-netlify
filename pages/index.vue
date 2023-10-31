@@ -1,5 +1,20 @@
 <template>
     <div>
+      
+     TOKEN
+      {{ token }}
+      <br> 
+      <input v-model="login.username">
+      <input v-model="login.password">
+      <br> 
+
+      {{ login }}
+
+      <br> 
+
+      {{ message }}
+      <br> 
+
       <NuxtLink to="/enums" style="color: red;"> enums api local server</NuxtLink>
 
       <div v-for="i in products">
@@ -8,15 +23,23 @@
   
       </div>
   
-      <br> <br> <br> 
+      <br> <br>
       {{ cep }}
+      
     </div>
   </template>
   
   <script setup>
+
+    const login = ref({username:'mor_2314', password :'83r5^_'});
+
+    const {data : message} = await useFetch('/api/welcome?nome=Gleyson Sampaio')
+
     const {data : products} = await useFetch('https://fakestoreapi.com/products')
   
     const {data : cep} = await useFetch('https://viacep.com.br/ws/01001000/json')
+
+    const {data:token} = await useFetch('/api/auth', {method:'POST',body:login})
 
     //const res = await useFetch('https://viacep.com.br/ws/0100100/json')
     //console.log('resposta via cep', res)
