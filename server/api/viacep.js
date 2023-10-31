@@ -1,9 +1,9 @@
 export default defineEventHandler( async (event) => {
     const {cep} = getQuery(event);
 
-    const {viaCepApi} = useRuntimeConfig()
+    const runtimeConfig = useRuntimeConfig()
 
-    const data = await $fetch( `${viaCepApi}/${cep}/json`);
+    const data = await $fetch( `${runtimeConfig.public.viaCepApi}/${cep}/json`);
 
     return data;
 })
