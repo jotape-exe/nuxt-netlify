@@ -24,6 +24,9 @@
       </div>
   
       <br> <br>
+
+      CEP
+      <br>
       {{ cep }}
       
     </div>
@@ -37,11 +40,17 @@
 
     const {data : products} = await useFetch('https://fakestoreapi.com/products')
   
-    const {data : cep} = await useFetch('https://viacep.com.br/ws/01001000/json')
+    const { viaCepApi } = useRuntimeConfig()
+
+    //const {data : cep} = await useFetch(`https://viacep.com.br/ws/01001000/json`)
+
+    const {data : cep} = await useFetch('/api/viacep?cep=01001000')
 
     const {data:token} = await useFetch('/api/auth', {method:'POST',body:login})
 
+    //const {data:token} = await $axios.$post('https://fakestoreapi.com/auth/login',{username:'mor_2314', password :'83r5^_'})
+
     //const res = await useFetch('https://viacep.com.br/ws/0100100/json')
     //console.log('resposta via cep', res)
-  
+
   </script>
