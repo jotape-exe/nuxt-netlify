@@ -2,8 +2,6 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig:{
-    public:{
-      viaCepApi:process.env.VIACEP_API
-    }
+    viaCepApi:process.env.VIACEP_API
   }
 })
