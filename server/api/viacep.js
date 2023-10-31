@@ -4,8 +4,8 @@ export default defineEventHandler( async (event) => {
     //const runtimeConfig = useRuntimeConfig()
     //const data = await $fetch( `${runtimeConfig.public.viaCepApi}/${cep}/json`);
 
-    const {viaCepApi} = useRuntimeConfig()
-    const data = await $fetch( `${viaCepApi}/${cep}/json`);
+    const {VIACEP_API} = useRuntimeConfig()
+    const data = await $fetch( `${VIACEP_API}/${cep}/json`);
 
     return data;
 })
