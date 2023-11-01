@@ -85,3 +85,7 @@ https://www.reddit.com/r/Nuxt/comments/10q4s6g/nuxt_3_and_axios/?rdt=64096
 axios
 
 npm install @nuxtjs/axios
+
+
+npm install quasar @quasar/extras
+npm install --save-dev nuxt-quasar-ui
