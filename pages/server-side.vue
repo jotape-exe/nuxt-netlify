@@ -5,8 +5,8 @@
 
         <select v-model="uf">
             <option disabled value="">Selecione um estado</option>
-            <option v-for="i in ufs" :key="i.sigla" :value="i">
-                {{ i.nome }}
+            <option v-for="i in ufs" :key="i?.sigla" :value="i">
+                {{ i?.nome }}
             </option>
         </select>
 
@@ -19,12 +19,18 @@
 
 <script setup>
 const uf = ref()
-const {data:ufs} = await useFetch('/api/constants/ufs');
-console.log('oi',ufs)
+const ufs = ref();
+
+async function fetch() {
+    console.log('buscando estados')
+    const res = await useFetch('/api/constants/ufs');
+    ufs.value = res.data;
+}
+
+fetch();
 
 onMounted( async ()  => {
-    console.log('montou')
-   
+    console.log('montou')   
 })
 
 </script>
