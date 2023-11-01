@@ -1,13 +1,9 @@
 export const useViaCepClient = () => {
-
-    const cepClient = useNuxtApp().$cepClient
-
+    const httpCep = useNuxtApp().$httpCep
     const getCep = async (cep:string) => {
-      const res = await cepClient.get(`/${cep}/json`)
-  
+      const res = await httpCep.get(`/${cep}/json`)
       return res
     }
-  
     return {
         getCep
     }

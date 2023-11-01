@@ -1,14 +1,14 @@
 import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
   
-  const cepClient = axios.create({
+  const httpCep = axios.create({
     baseURL: 'https://viacep.com.br/ws',
     headers: {
       'Content-Type': 'application/json',
     }
   });
 
-  cepClient.interceptors.response.use(
+  httpCep.interceptors.response.use(
     (res) => {
       const { data } = res;
       return { success: true, status: res.status, body: data };
@@ -19,7 +19,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   );
 return {
     provide: {
-      cepClient: cepClient,
+      httpCep: httpCep,
     },
   };
 });
