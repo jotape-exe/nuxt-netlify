@@ -19,15 +19,18 @@
 
 <script setup>
 const uf = ref()
-const ufs = ref();
+const {data:ufs} = await useFetch('/api/constants/ufs');
 
+/*
 async function fetch() {
     console.log('buscando estados')
     const res = await useFetch('/api/constants/ufs');
     ufs.value = res.data;
 }
-
 fetch();
+
+*/
+
 
 onMounted( async ()  => {
     console.log('montou')   
