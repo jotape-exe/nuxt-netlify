@@ -78,3 +78,10 @@ Check out the [deployment documentation](https://nuxt.com/docs/getting-started/d
 
 
 https://dev.to/kouts/using-axios-in-nuxt-with-composition-api-1iaj
+
+https://www.reddit.com/r/Nuxt/comments/10q4s6g/nuxt_3_and_axios/?rdt=64096
+
+
+axios
+
+npm install @nuxtjs/axios
