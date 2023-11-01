@@ -17,6 +17,7 @@
 
 <script setup>
 
+const {upper, lower} = useUfService();
 const axios = useNuxtApp().$axios
 
 onMounted( () => {
@@ -28,9 +29,12 @@ const ufs = ref();
 
 //axios -> use
 const buscar = async () => {
-    axios.get('/01001000/json').then( (response) => {
-        console.log(response)
+    let data=null;
+    await axios.get('/01001000/json').then( (response) => {
+        data = response.data;
     })
+    console.log('apos consultar o cep')
+    console.log(upper(data.logradouro))
 }
 
 /* FETCH
