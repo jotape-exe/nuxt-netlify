@@ -1,6 +1,9 @@
 <template>
     <div>
-       Eu sou o conteúdo que será apresentado quando selecionarmos um produto
+        <h1>Eu sou o conteúdo que será apresentado quando selecionarmos um produto</h1>
+      <h2>{{ `simulando consumir uma api externa -> https://fakestoreapi.com/products/` + id }}</h2>
+       <br>
+       
         ID: {{ id }}
         <br><br>
         Titulo: {{ product.title }}
@@ -10,6 +13,7 @@
         <br>
         Imagem
         <br>
+        <!-- ESTE COMPONENTE É CUSTOMIZADO, veja a pasta components-->
         <ProductImg :product="product"/>
 
     </div>

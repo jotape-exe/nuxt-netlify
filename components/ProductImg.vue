@@ -2,6 +2,7 @@
     <div>
        <img :src="product.image"/>
 
+       <br><br>
        Descrição no componentes
        {{ product }}
     </div>
