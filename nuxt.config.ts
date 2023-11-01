@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig:{
-    VIACEP_API:''
+    VIACEP_API:'',
+    TOKEN:'abcd@123#$'
   }
 })
