@@ -75,3 +75,6 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
+https://dev.to/kouts/using-axios-in-nuxt-with-composition-api-1iaj

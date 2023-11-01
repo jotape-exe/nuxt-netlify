@@ -4,9 +4,9 @@
         Nome: <input type="text" v-model="filtro" /> {{ filtro }}
         <button @click="buscar">Buscar</button>
 
-        <br><br>
+        <br /><br />
         Estados Localizados
-        <br><br>
+        <br /><br />
         <ul>
             <li v-for="i in ufs">
                 {{ i }}
@@ -16,24 +16,19 @@
 </template>
 
 <script setup>
-const filtro = ref()
-const ufs = ref()
-const buscar = async ()  => {
+const filtro = ref();
+const ufs = ref();
+const buscar = async () => {
     //const { data:stats } = await useAsyncData( 'stats', () => $fetch( config.API_BASE_URL+'/stats') );
+    const { data, pending, error, refresh } = await useAsyncData("ufs", () =>
+        $fetch("/api/constants/ufs"),
+        {
+      default: () => [],
+      transform: (data) => ufs}
+    );
 
-    const { data, pending, error, refresh } = await useAsyncData(
-  'ufs',
-  () => $fetch('/api/constants/ufs')
-)
-
-    console.log(data)
-    ufs.value = data.value;
-    console.log(ufs)
-    
-}
-
+    //ufs.value = data.value;
+};
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>
