@@ -17,6 +17,27 @@ export default defineNuxtConfig({
       // ... or scan all modules within given directory
       'composables/**'
     ]
+  },
+  modules: ['nuxt-quasar-ui'],
+  quasar: {
+    plugins: [
+      'BottomSheet',
+      'Dialog',
+      'Loading',
+      'LoadingBar',
+      'Notify',
+      'Dark',
+    ],
+    extras: {
+      font: 'roboto-font',
+    },
+    components: {
+      defaults: {
+        QBtn: {
+          unelevated: true,
+        },
+      },
+    },
   }
 })
 
