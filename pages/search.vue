@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Search Event</h1>
-    Nome: <input type="text" v-model="filtro" /> {{ filtro }}
-    <button @click="buscar">Buscar</button>
+    Estado: <input type="text" v-model="filtro" /> {{ filtro }}
+    <button @click="buscar">Buscar ufs</button>
 
     <br /><br />
     Estados Localizados
@@ -12,22 +12,49 @@
         {{ i }}
       </li>
     </ul>
+
+    <br /><br />
+    CEP: <input type="text" v-model="filtro" /> {{ filtro }}
+    <button @click="buscarCep">Buscar Cep</button>
+
+    <br />
+    CEP Localizado
+    <br />
+    {{ cep }}    
   </div>
 </template>
 
 <script setup>
 
-const {upper, lower} = useUfService();
-const axios = useNuxtApp().$axios
+const cepClient = useNuxtApp().$cepClient
+
+const {upper, lower} = useTexts();
+const {getCep} = useViaCepClient();
 
 onMounted( () => {
 
 })
 
-const filtro = ref();
+const filtro = ref('01001000');
 const ufs = ref();
+const cep = ref();
 
-//axios -> use
+//axios compasables apis
+const buscar = async () => {
+   
+}
+const buscarCep = async () => {
+   //cep.value = getCep(filtro.value);
+
+   //cep.value = cepClient.get(`/${filtro.value}/json`);
+   await cepClient.get(`/${filtro.value}/json`).then( (response) => {
+        cep.value = response.data;
+    })
+}
+
+//axios direto
+
+/*
 const buscar = async () => {
     let data=null;
     await axios.get('/01001000/json').then( (response) => {
@@ -36,7 +63,7 @@ const buscar = async () => {
     console.log('apos consultar o cep')
     console.log(upper(data.logradouro))
 }
-
+*/
 /* FETCH
 const buscar = async () => {
   //const { data:stats } = await useAsyncData( 'stats', () => $fetch( config.API_BASE_URL+'/stats') );

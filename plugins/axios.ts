@@ -2,7 +2,7 @@ import axios from "axios";
 export default defineNuxtPlugin((nuxtApp) => {
   
   const cepClient = axios.create({
-    baseURL: process.env.VIACEP_API,
+    baseURL: 'https://viacep.com.br/ws',
     headers: {
       'Content-Type': 'application/json',
     }
