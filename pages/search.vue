@@ -26,7 +26,7 @@
 
 <script setup>
 
-const cepClient = useNuxtApp().$cepClient
+//const cepClient = useNuxtApp().$cepClient
 
 const {upper, lower} = useTexts();
 const {getCep} = useViaCepClient();
@@ -44,8 +44,14 @@ const buscar = async () => {
    
 }
 const buscarCep = async () => {
-    const {status, body } = await cepClient.get(`/${filtro.value}/json`);
-    console.log(status, body)
+    //const {status, body } = await cepClient.get(`/${filtro.value}/json`);
+    const {success, body } = await getCep(filtro.value);
+    cep.value=null;
+    if(success)
+        cep.value = body;
+    else
+        alert(body);
+    
 }
 
  //cep.value = getCep(filtro.value);

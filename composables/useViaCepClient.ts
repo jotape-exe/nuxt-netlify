@@ -1,9 +1,15 @@
-//const cepClient = useNuxtApp().$cepClient
+export const useViaCepClient = () => {
 
-export default function (){
-    const  getCep = async (cep:string) =>{
-        return 'oi';// await cepClient.get(`/${cep}/json`);
+    const cepClient = useNuxtApp().$cepClient
+
+    const getCep = async (cep:string) => {
+      const res = await cepClient.get(`/${cep}/json`)
+  
+      return res
     }
-
-    return {getCep};
-}
+  
+    return {
+        getCep
+    }
+  }
+  
