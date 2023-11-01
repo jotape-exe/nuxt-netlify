@@ -3,6 +3,7 @@
         <h1>Eu sou o Layout Padrao </h1>
         <br> 
         <NuxtLink to="/">Home</NuxtLink>
+        <NuxtLink to="/auth">Auth</NuxtLink>
         <NuxtLink to="/products">Products</NuxtLink>
         <NuxtLink to="/products/1">Products/1</NuxtLink>
         <NuxtLink to="/enums">Enums Server API</NuxtLink>

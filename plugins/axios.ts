@@ -44,7 +44,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 return {
     provide: {
-      httpCep: httpCep,
+      httpCep,
+      http
     },
   };
 });

@@ -1,11 +1,12 @@
 export const useAuthApi = () => {
-    const httpCep = useNuxtApp().$httpCep
-    const getCep = async (cep:string) => {
-      const res = await httpCep.get(`/${cep}/json`)
-      return res
+    const http = useNuxtApp().$http
+    
+    const realizarLogin = async (login:any) => {
+      return await http.post('/public/login', login)
     }
+
     return {
-        getCep
+      realizarLogin
     }
   }
   
