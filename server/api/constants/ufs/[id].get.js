@@ -5,5 +5,5 @@ export default defineEventHandler( async (event) => {
     //const uf = db.ufs.find(i=>i.id==id);
     //return uf;
 
-    return db.ufs.find(i=>i.id == event.context.params.id);
+    return db.ufs.find(i=>i.id == event.context.params.id) || {message:'Not Found'};
 })
