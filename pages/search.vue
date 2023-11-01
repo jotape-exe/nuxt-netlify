@@ -29,7 +29,7 @@
 //const cepClient = useNuxtApp().$cepClient
 
 const {upper, lower} = useTexts();
-const {getCep} = useViaCepClient();
+const {getCep} = useViaCepApi();
 
 onMounted( () => {
 

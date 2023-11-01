@@ -1,4 +1,4 @@
-export const useViaCepClient = () => {
+export const useViaCepApi = () => {
     const httpCep = useNuxtApp().$httpCep
     const getCep = async (cep:string) => {
       const res = await httpCep.get(`/${cep}/json`)
