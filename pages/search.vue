@@ -44,13 +44,20 @@ const buscar = async () => {
    
 }
 const buscarCep = async () => {
-   //cep.value = getCep(filtro.value);
+    const {status, body } = await cepClient.get(`/${filtro.value}/json`);
+    console.log(status, body)
+}
+
+ //cep.value = getCep(filtro.value);
 
    //cep.value = cepClient.get(`/${filtro.value}/json`);
+   
+   /* promise
    await cepClient.get(`/${filtro.value}/json`).then( (response) => {
         cep.value = response.data;
     })
-}
+
+    */
 
 //axios direto
 
