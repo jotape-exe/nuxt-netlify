@@ -5,6 +5,8 @@
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/products">Products</NuxtLink>
         <NuxtLink to="/products/1">Products/1</NuxtLink>
+        <NuxtLink to="/enums">Enums Server API</NuxtLink>
+        <NuxtLink to="/search">Search</NuxtLink>
         <br>
         <slot></slot>
         <br>

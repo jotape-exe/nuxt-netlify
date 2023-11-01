@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-    const {data:ufs} = await useFetch('/api/ufs');
+    const {data:ufs} = await useFetch('/api/constants/ufs');
     const uf = ref()
 
 
