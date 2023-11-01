@@ -10,4 +10,4 @@ router.get('/search?', defineEventHandler ( () => db.produtos ))
 router.post('/create', defineEventHandler ( inclusao()) )
 
 console.log(db.ufs)
-export default useBase('/api/produtos', router.handler)
+export default useBase('/catalogos', router.handler)
