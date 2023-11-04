@@ -1,25 +1,30 @@
 <template>
-    <div>
-        Server Side - Consumindo Constantes
-        <br><br>
+  <div>
+    Server Side - Consumindo Constantes
+    <br /><br />
 
-        <select v-model="uf">
-            <option disabled value="">Selecione um estado</option>
-            <option v-for="i in ufs" :key="i?.sigla" :value="i">
-                {{ i?.nome }}
-            </option>
-        </select>
+    <UiSelect v-model="uf">
+      <UiSelectTrigger>
+        <UiSelectValue placeholder="Selecione um estado"/>
+      </UiSelectTrigger>
+      <UiSelectContent>
+        <UiSelectGroup>
+          <UiSelectItem v-for="i in ufs" :key="i?.sigla" :value="i">
+            {{ i?.nome }}
+          </UiSelectItem>
+        </UiSelectGroup>
+      </UiSelectContent>
+    </UiSelect>
 
-        <br><br>
+    <br /><br />
 
-        estado selecionado é : {{ uf }}
-
-    </div>
+    estado selecionado é : {{ uf }}
+  </div>
 </template>
 
 <script setup>
-const uf = ref()
-const {data:ufs} = await useFetch('/api/constants/ufs');
+const uf = ref();
+const { data: ufs } = await useFetch("/api/constants/ufs");
 
 /*
 async function fetch() {
@@ -31,11 +36,9 @@ fetch();
 
 */
 
-
-onMounted( async ()  => {
-    console.log('montou')   
-})
-
+onMounted(async () => {
+  console.log("montou");
+});
 </script>
 
 <style lang="scss" scoped></style>

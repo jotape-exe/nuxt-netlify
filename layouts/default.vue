@@ -1,17 +1,18 @@
 <template>
-    <div>
-        <h1>Eu sou o Layout Padrao </h1>
-        <br> 
-        <NuxtLink to="/">Home</NuxtLink>
-        <NuxtLink to="/auth">Auth</NuxtLink>
-        <NuxtLink to="/products">Products</NuxtLink>
-        <NuxtLink to="/products/1">Products/1</NuxtLink>
-        <NuxtLink to="/enums">Enums Server API</NuxtLink>
-        <NuxtLink to="/search">Search</NuxtLink>
-        <br>
+    <!-- Header -->
+    <Header />
+    <div class="container lg:grid lg:grid-cols-12 lg:gap-10">
+      <!-- Sidebar -->
+      <Sidebar class="hidden lg:col-span-3 lg:block" />
+
+      <!-- Main Section -->
+      <main class="py-5 lg:col-span-6">
         <slot></slot>
-        <br>
-        Rodape Padrão
+      </main>
+      <div class="hidden py-5 lg:col-span-3 lg:block">
+        <!-- Profile info to the side -->
+        <ProfileInfo />
+      </div>
     </div>
 </template>
 

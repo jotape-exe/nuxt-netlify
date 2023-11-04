@@ -1,13 +1,17 @@
 <template>
-    <div>
-       <img :src="product.image"/>
-
-       <br><br>
-       Descrição no componentes
-       {{ product }}
-    </div>
+  <div  class="overflow-hidden cursor-pointer rounded-md max-w-sm max-h-sm">
+    <img
+      :src="product.image"
+      :class="
+        cn(
+          'h-auto w-auto object-cover transition-all hover:scale-105'
+        )
+      "
+    />
+  </div>
 </template>
 
 <script setup>
-    const { product } = defineProps(['product']) 
+import { cn } from "~/lib/utils";
+const { product } = defineProps(["product"]);
 </script>
