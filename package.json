@@ -23,12 +23,14 @@
   "dependencies": {
     "@davestewart/nuxt-scrollbar": "^1.0.0",
     "@morev/vue-transitions": "^2.3.6",
+    "@pinia/nuxt": "^0.5.1",
     "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "lucide": "^0.291.0",
     "lucide-vue-next": "^0.291.0",
     "nuxt-icons": "^3.2.1",
+    "pinia": "^2.1.7",
     "radix-vue": "^1.1.1",
     "tailwind-merge": "^2.0.0",
     "tailwindcss-animate": "^1.0.7"

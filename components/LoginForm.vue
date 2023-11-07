@@ -1,59 +1,61 @@
-<script setup lang="ts">
+<script setup>
 import { ref, h } from "vue";
-//import LucideSpinner from '~icons/lucide/loader-2'
+import { Loader2 } from 'lucide-vue-next';
 //import GitHubLogo from '~icons/radix-icons/github-logo'
 
 import { cn } from "@/lib/utils";
-import { LucideLoader2 } from "lucide-vue-next";
+
 import { LucideGithub } from "lucide-vue-next";
-import type { Login } from "~/interfaces/ILogin";
+//import type { Login } from "~/interfaces/ILogin";
 import { ToastAction } from "radix-vue";
-import { useToast } from "./ui/toast";
+import { Toaster, useToast } from "./ui/toast";
 import { Button } from "./ui/button";
 
 const { toast } = useToast();
 const isLoading = ref(false);
 const router = useRouter();
-const api = useAuthApi();
 
-const login = useLogin();
+const { realizarLogin } = useAuthApi();
 
-const form: Login = reactive({
+const form = reactive({
   usuario: "",
   senha: "",
 });
 
-async function doLogin() {
-  isLoading.value = true;
 
-  const request = await api.realizarLogin(form);
+const logar = async () => {
+  isLoading.value = true
+
+  const { success, status, body } = await realizarLogin(form);
 
   setTimeout(() => {
-    isLoading.value = false;
-  }, 3000);
+      isLoading.value = false;
+    }, 2000);
 
-  toast({
-    title: "request.data",
-    description: "There was a problem with your request.",
-    variant: "default",
-    action: h(
-      ToastAction,
-      {
-        altText: "Try again",
-      },
-      {
-        default: () => "Try again",
-      }
-    ),
-  });
+  if (status.success) {
 
- router.push("/");
-}
+    toast({
+      title: status.message,
+      description: "There was a problem with your request.",
+      variant: "default"
+    });
+
+    router.push("/app");
+  } else {
+    toast({
+      title: status.message,
+      description: status.suggestion,
+      variant: "destructive"
+    });
+  }
+
+  isLoading.value = true;
+};
 </script>
 
 <template>
   <div :class="cn('grid gap-6', $attrs.class ?? '')">
-    <form @submit="doLogin">
+    <form @submit.prevent="logar()">
       <div class="grid gap-2">
         <div class="grid gap-1">
           <UiLabel class="sr-only" for="email"> Email </UiLabel>
@@ -73,18 +75,17 @@ async function doLogin() {
             id="senha"
             placeholder="*********"
             type="password"
-            auto-capitalize="none"
-            auto-complete="senha"
             v-model="form.senha"
             auto-correct="off"
             :disabled="isLoading"
           />
         </div>
-        <Button :disabled="isLoading">
-          <LucideLoader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
+        <Button type="submit"  :disabled="isLoading">
+          <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
           Entrar
         </Button>
       </div>
     </form>
   </div>
+  <Toaster />
 </template>

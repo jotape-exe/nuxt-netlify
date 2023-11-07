@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
     "nuxt-icons",
+    '@pinia/nuxt',
     'radix-vue/nuxt',
     "@vueuse/nuxt",
     "nuxt-headlessui",
@@ -41,7 +42,8 @@ export default defineNuxtConfig({
       // ... or scan all modules within given directory
       'composables/**'
     ]
-  }
+  },
+  ssr:false
 })
 
 

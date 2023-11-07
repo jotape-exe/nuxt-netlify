@@ -69,6 +69,7 @@
         </button>
 
         <!-- Profile Dropdown menu -->
+        <!-- Profile Dropdown menu -->
         <HMenu as="div" class="relative">
           <HMenuButton
             class="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border bg-background"
@@ -98,7 +99,7 @@
                       :class="[active && 'bg-muted']"
                       class="inline-flex w-full items-center rounded-md p-2 text-sm font-medium"
                     >
-                      <NuxtLink :to="p.route">
+                      <NuxtLink :onclick="p.action" :to="p.route">
                         {{ p.title }}
                       </NuxtLink>
                     </button>
@@ -126,6 +127,7 @@ import {
 } from "./ui/navigation-menu";
 import NavigationMenuListItem from "./ui/navigation-menu/NavigationMenuListItem.vue";
 
+const router = useRouter();
 const mode = useColorMode();
 const currentTrigger = ref("");
 const toggleTheme = () => {
@@ -140,7 +142,15 @@ const profileMenuOptions = [
   { title: "Team members" },
   { title: "Sales" },
   { divider: true },
-  { title: "Logout", route: "/auth/login" },
+  {
+    title: "Logout",
+    route: "/auth/login",
+    action: () => {
+      router.replace("/auth/login");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+    },
+  },
 ];
 
 const components: { title: string; href: string; description: string }[] = [

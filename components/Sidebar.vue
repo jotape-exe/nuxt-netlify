@@ -13,65 +13,75 @@
 </template>
 
 <script setup lang="ts">
-  const bottomMenu = [
-    {
-      title: "Settings",
-      icon: "heroicons:cog-8-tooth",
-      route: '/settings'
+const router = useRouter();
+const bottomMenu = [
+  {
+    title: "Settings",
+    icon: "heroicons:cog-8-tooth",
+    route: "/settings",
+  },
+  {
+    title: "Help",
+    icon: "heroicons:question-mark-circle",
+    route: "/help",
+  },
+  {
+    title: "Logout",
+    icon: "heroicons:arrow-left-on-rectangle",
+    route: "/auth/login",
+    action: () => {
+      router.replace("/auth/login");
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
     },
-    {
-      title: "Help",
-      icon: "heroicons:question-mark-circle",
-      route: '/help'
-    },
-    {
-      title: "Logout",
-      icon: "heroicons:arrow-left-on-rectangle",
-      route: '/auth/login'
-    },
-  ];
-  const menu = [
-    {
-      title: "Home",
-      icon: "heroicons:home",
-      route: '/'
-    },
-    {
-      title: "Produtos",
-      icon: "heroicons:cube",
-      route: '/products'
-    },
-    {
-      title: "Buscar",
-      icon: "heroicons:magnifying-glass",
-      route: '/search'
-    },
-    {
-      title: "Products",
-      icon: "heroicons:cube",
-      items: [
-        { title: "List" },
-        { title: "Create" },
-        { title: "Edit" },
-        { title: "Delete" },
-        { title: "Details" },
-      ],
-    },
-    {
-      title: "Staff",
-      icon: "heroicons:user",
-      items: [
-        { title: "List" },
-        { title: "Create" },
-        { title: "Edit" },
-        { title: "Delete" },
-        { title: "Details" },
-      ],
-    },
-    {
-      title: "Analytics",
-      icon: "heroicons:chart-pie",
-      items: [{ title: "Overview" }, { title: "Statistics" }, { title: "Trends" }],
-    },
-  ];
+  },
+];
+const menu = [
+  {
+    title: "Home",
+    icon: "heroicons:home",
+    route: "/",
+  },
+  {
+    title: "Produtos",
+    icon: "heroicons:cube",
+    route: "/products",
+  },
+  {
+    title: "Buscar",
+    icon: "heroicons:magnifying-glass",
+    route: "/search",
+  },
+  {
+    title: "Products",
+    icon: "heroicons:cube",
+    items: [
+      { title: "List" },
+      { title: "Create" },
+      { title: "Edit" },
+      { title: "Delete" },
+      { title: "Details" },
+    ],
+  },
+  {
+    title: "Staff",
+    icon: "heroicons:user",
+    items: [
+      { title: "List" },
+      { title: "Create" },
+      { title: "Edit" },
+      { title: "Delete" },
+      { title: "Details" },
+    ],
+  },
+  {
+    title: "Analytics",
+    icon: "heroicons:chart-pie",
+    items: [
+      { title: "Overview" },
+      { title: "Statistics" },
+      { title: "Trends" },
+    ],
+  },
+];
 </script>

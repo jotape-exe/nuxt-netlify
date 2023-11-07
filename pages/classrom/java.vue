@@ -1,4 +1,5 @@
 <template>
+  <div>
     <h1
       class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
     >
@@ -31,12 +32,13 @@
       <br />
       <h3 class="scroll-m-20 text-1xl font-semibold tracking-tight">"Hello Word" em Java</h3>
       <UiSeparator class="my-2" />
-      <pre  class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-sm">
+<pre  class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-sm">
 public class HelloWorld {
       public static void main(String[] args) {
           System.out.println("Hello, World!");
       }
-}</pre>
+}
+</pre>
       <br>
 
       Ao longo dos anos, o Java se tornou a escolha preferida para o
@@ -52,10 +54,8 @@ public class HelloWorld {
       utilizados em várias tecnologias e linguagens de programação hoje em dia.
       <br />
       <br />
-      Em resumo, a história do Java é uma história de inovação, portabilidade e
-      impacto duradouro no mundo da programação de computadores.
     </p>
-
+  </div>
 </template>
 
 <script setup lang="ts">

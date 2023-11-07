@@ -65,9 +65,9 @@
 </template>
 
 <script setup>
-const router = useRouter();
 
 definePageMeta({
-  middleware: "session",
-});
+  layout: "home-layout"
+})
+
 </script>

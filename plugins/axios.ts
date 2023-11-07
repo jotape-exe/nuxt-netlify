@@ -29,7 +29,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   http.interceptors.response.use(
     (res) => {
       const { data } = res;
-      return { success: true, status: data.status, body: data.body };
+      return { success: true, status: data.status, body: data.body, token: data.body.token, usuario: data.body.usuario };
     },
     (err) => {
       if (err.response.status == "409") {
