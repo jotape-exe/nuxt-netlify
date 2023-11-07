@@ -94,12 +94,12 @@
               </div>
               <div class="p-1">
                 <template v-for="(p, i) in profileMenuOptions" :key="i">
-                  <HMenuItem v-if="!p.divider" v-slot="{ active }">
+                  <HMenuItem @click="p.action" v-if="!p.divider" v-slot="{ active }">
                     <button
                       :class="[active && 'bg-muted']"
                       class="inline-flex w-full items-center rounded-md p-2 text-sm font-medium"
                     >
-                      <NuxtLink :onclick="p.action" :to="p.route">
+                      <NuxtLink :to="p.route">
                         {{ p.title }}
                       </NuxtLink>
                     </button>

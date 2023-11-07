@@ -25,7 +25,7 @@ const bottomMenu = [
     icon: "heroicons:question-mark-circle",
     route: "/help",
   },
-  {
+  /*{
     title: "Logout",
     icon: "heroicons:arrow-left-on-rectangle",
     route: "/auth/login",
@@ -34,23 +34,23 @@ const bottomMenu = [
       localStorage.removeItem("token");
       localStorage.removeItem("user");
     },
-  },
+  },*/
 ];
 const menu = [
   {
     title: "Home",
     icon: "heroicons:home",
-    route: "/",
+    route: "/app",
   },
   {
     title: "Produtos",
     icon: "heroicons:cube",
-    route: "/products",
+    route: "/app/products",
   },
   {
     title: "Buscar",
     icon: "heroicons:magnifying-glass",
-    route: "/search",
+    route: "/app/search",
   },
   {
     title: "Products",
